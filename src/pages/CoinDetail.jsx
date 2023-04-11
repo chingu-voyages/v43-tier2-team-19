@@ -16,8 +16,6 @@ const CoinDetail = () => {
     setCoin(data)
   }
 
-  console.log(coin)
-
   useEffect(() => {
     fetchCoin()
     // eslint-disable-next-line
@@ -38,7 +36,7 @@ const CoinDetail = () => {
       )}
 
       {/* chart */}
-      <Chart {...coin} />
+      {coin && <Chart coin={coin} />}
     </div>
   )
 }
