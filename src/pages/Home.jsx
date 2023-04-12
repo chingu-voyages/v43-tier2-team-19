@@ -1,14 +1,14 @@
-import React from "react"
-import CoinList from "../components/CoinList"
-import Header from "../components/Header"
+import React from 'react';
+import CoinList from '../components/CoinList';
+import Hero from '../components/Hero';
 
 const Home = () => {
   return (
     <>
-      <Header />
+      <Hero />
       <CoinList />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
