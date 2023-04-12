@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Select from 'react-select';
+import { useUserContext } from '../context/userContext';
 import Auth from './Auth';
+import { SignOut } from './SignOut';
 
 const options = [
   { label: 'US Dollar', value: 'USD' },
@@ -17,6 +19,7 @@ const options = [
 const Navbar = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalAction, setAuthModalAction] = useState('login');
+  const { user } = useUserContext();
 
   const toggleAuthModal = useCallback((action) => {
     setIsAuthModalOpen((prev) => !prev);
@@ -29,28 +32,35 @@ const Navbar = () => {
         <div>Our Logo Should be here</div>
       </NavLink>
 
-      <nav>
-        <NavLink to="/watchlist">Watchlist</NavLink>
-      </nav>
+      {user && (
+        <nav>
+          <NavLink to="/watchlist">Watchlist</NavLink>
+        </nav>
+      )}
 
-      <div>
-        <button type="button" onClick={() => toggleAuthModal('login')}>
-          {' '}
-          Login
-        </button>
+      {!user ? (
+        <div>
+          <button type="button" onClick={() => toggleAuthModal('login')}>
+            {' '}
+            Login
+          </button>
 
-        <button type="button" onClick={() => toggleAuthModal('signup')}>
-          {' '}
-          Sign Up
-        </button>
+          <button type="button" onClick={() => toggleAuthModal('signup')}>
+            {' '}
+            Sign Up
+          </button>
 
-        {isAuthModalOpen && (
-          <Auth
-            onClose={() => setIsAuthModalOpen(false)}
-            action={authModalAction}
-          />
-        )}
-      </div>
+          {isAuthModalOpen && (
+            <Auth
+              onClose={() => setIsAuthModalOpen(false)}
+              action={authModalAction}
+            />
+          )}
+        </div>
+      ) : (
+        <SignOut />
+      )}
+
       <Select
         options={options}
         isSearchable={false}

@@ -1,46 +1,45 @@
-import React, { useState, useEffect } from "react"
-import AliceCarousel from "react-alice-carousel"
-import { TrendingCoins } from "../utils/api"
-import axios from "axios"
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from 'react';
+import AliceCarousel from 'react-alice-carousel';
+import { TrendingCoins } from '../utils/api';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
-  const [trending, setTrending] = useState([])
+  const [trending, setTrending] = useState([]);
 
   const fetchTrendingCoins = async () => {
-    const { data } = await axios.get(TrendingCoins())
+    const { data } = await axios.get(TrendingCoins());
 
-    console.log(data)
-    setTrending(data)
-  }
+    setTrending(data);
+  };
 
   useEffect(() => {
-    fetchTrendingCoins()
+    fetchTrendingCoins();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   // display comas and points in the correct way
   const numberWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  }
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
 
   const items = trending.map((coin) => {
     // shows profit in %
-    let profit = coin.price_change_percentage_24h >= 0
+    let profit = coin.price_change_percentage_24h >= 0;
 
     return (
       <Link to={`/coin/${coin.id}`}>
         <img src={coin?.image} alt={coin.name} height="80" />
         <span>
-          {coin?.symbol}{" "}
+          {coin?.symbol}{' '}
           <span>
-            {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
+            {profit && '+'} {coin?.price_change_percentage_24h?.toFixed(2)}%
           </span>
         </span>
         <span>{numberWithCommas(coin?.current_price.toFixed(2))}$</span>
       </Link>
-    )
-  })
+    );
+  });
 
   // < 512px screen shows only 2 items;
   const responsive = {
@@ -50,7 +49,7 @@ const Hero = () => {
     512: {
       items: 4,
     },
-  }
+  };
   return (
     <div>
       <div>
@@ -68,7 +67,7 @@ const Hero = () => {
         items={items}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
