@@ -1,9 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import LoginModal from './LoginModal';
+import { useUserContext } from '../context/userContext';
 
 const SignUpModal = ({ onClose }) => {
   const emailRef = useRef();
   const pswrdRef = useRef();
+
+  const { signUp } = useUserContext();
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
@@ -22,6 +25,10 @@ const SignUpModal = ({ onClose }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const email = emailRef.current.value;
+    const pswrd = pswrdRef.current.value;
+
+    if (email && pswrd) signUp(email, pswrd);
   };
 
   const toggleLoginModal = (e) => setShowLoginModal(!showLoginModal);
