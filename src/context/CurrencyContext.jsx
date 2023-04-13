@@ -1,31 +1,36 @@
-import React, { useContext, useState, useEffect } from "react"
-import { createContext } from "react"
+import React, { useContext, useState, useEffect } from 'react';
+import { createContext } from 'react';
 
-const Crypto = createContext()
+export const Crypto = createContext();
 
-const CurrencyContext = ({ children }) => {
-  const [currency, setCurrency] = useState("USD")
-  const [symbol, setSymbol] = useState("$")
+const CurrencyContext = ({ children, selectedCurrency }) => {
+  console.log('children:', children);
+  console.log('selectedCurrency:', selectedCurrency);
+
+  const [currency, setCurrency] = useState(selectedCurrency || 'USD');
+  const [symbol, setSymbol] = useState('$');
 
   useEffect(() => {
-    if (currency === "USD") {
-      setSymbol("$")
-    } else if (currency === "EUR") {
-      setSymbol("€")
-    } else if (currency === "UAH") {
-      setSymbol("₴")
+    setCurrency(selectedCurrency || 'USD');
+  }, [selectedCurrency]);
+
+  useEffect(() => {
+    if (currency === 'USD') {
+      setSymbol('$');
+    } else if (currency === 'EUR') {
+      setSymbol('€');
+    } else if (currency === 'UAH') {
+      setSymbol('₴');
     }
-  }, [currency])
+  }, [currency]);
 
   return (
     <Crypto.Provider value={{ currency, symbol, setCurrency }}>
       {children}
     </Crypto.Provider>
-  )
-}
+  );
+};
 
-export default CurrencyContext
+export default CurrencyContext;
 
-export const CryptoState = () => {
-  return useContext(Crypto)
-}
+export const CryptoState = () => useContext(Crypto);

@@ -4,27 +4,32 @@ import Select from 'react-select';
 import { useUserContext } from '../context/userContext';
 import Auth from './Auth';
 import { SignOut } from './SignOut';
+import { Crypto, CryptoState } from '../context/CurrencyContext';
 
 const options = [
   { label: 'US Dollar', value: 'USD' },
-  { label: 'Indonesian Rupiah', value: 'IDR' },
-  { label: 'New Taiwan Dollar', value: 'TWD' },
   { label: 'Euro', value: 'EUR' },
-  { label: 'South Korean Won', value: 'KRW' },
-  { label: 'Japanese Yen', value: 'JPY' },
   { label: 'Ukrainian Hrivna', value: 'UAH' },
-  { label: 'Chinese Yuan', value: 'CNY' },
 ];
 
 const Navbar = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalAction, setAuthModalAction] = useState('login');
   const { user } = useUserContext();
+  const { currency, setCurrency } = CryptoState();
 
   const toggleAuthModal = useCallback((action) => {
     setIsAuthModalOpen((prev) => !prev);
     setAuthModalAction(action);
   }, []);
+
+  const handleCurrencyChange = useCallback(
+    (selectedOption) => {
+      console.log('selectedOption:', selectedOption);
+      setCurrency(selectedOption.value);
+    },
+    [setCurrency]
+  );
 
   return (
     <header>
@@ -61,12 +66,16 @@ const Navbar = () => {
         <SignOut />
       )}
 
-      <Select
-        options={options}
-        isSearchable={false}
-        menuPosition="fixed"
-        getOptionLabel={(option) => option.label}
-      />
+      <Crypto.Provider value={{ currency, setCurrency }}>
+        <Select
+          options={options}
+          isSearchable={false}
+          menuPosition="fixed"
+          getOptionLabel={(option) => option.label}
+          value={options.find((option) => option.value === currency)}
+          onChange={handleCurrencyChange}
+        />
+      </Crypto.Provider>
     </header>
   );
 };
