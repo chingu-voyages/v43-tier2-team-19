@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import moment from 'moment/moment';
+import { ChartWrapper, Container, Loading } from './Chart.styled';
 
 ChartJS.register(
   CategoryScale,
@@ -25,7 +26,7 @@ ChartJS.register(
   Legend
 );
 
-const Chart = ({ coin }) => {
+export const Chart = ({ coin }) => {
   const [historicalData, sethistoricalData] = useState();
 
   const fetchHistoricalData = async () => {
@@ -41,7 +42,11 @@ const Chart = ({ coin }) => {
   }, []);
 
   if (!historicalData) {
-    return <div>Loading...</div>;
+    return (
+      <Container>
+        <Loading>Loading...</Loading>
+      </Container>
+    );
   }
 
   const coinChartData = historicalData.map((value) => ({
@@ -66,10 +71,10 @@ const Chart = ({ coin }) => {
   };
 
   return (
-    <div>
-      <Line options={options} data={data} />
-    </div>
+    <Container>
+      <ChartWrapper>
+        <Line options={options} data={data} />
+      </ChartWrapper>
+    </Container>
   );
 };
-
-export default Chart;
