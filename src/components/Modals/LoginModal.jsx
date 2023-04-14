@@ -1,7 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
-import SignUpModal from './SignUpModal';
+import { SignUpModal } from './SignUpModal';
+import {
+  Btn,
+  Container,
+  Form,
+  Input,
+  Label,
+  Login,
+  Toggle,
+} from './Modals.styled';
 
-const LoginModal = ({ onClose }) => {
+export const LoginModal = ({ onClose }) => {
   const emailRef = useRef();
   const pswrdRef = useRef();
   const [showSignUpModal, setShowSignUpModal] = useState(false);
@@ -29,35 +38,33 @@ const LoginModal = ({ onClose }) => {
   if (showSignUpModal) return <SignUpModal onClose={toggleSignUpModal} />;
 
   return (
-    <div onClick={closeModal}>
-      <h2>Login to track your favorite coin easily 🚀</h2>
-      <form onSubmit={onSubmit}>
-        <label>
+    <Container onClick={closeModal}>
+      <Login>Login to track your favorite coin easily 🚀</Login>
+      <Form onSubmit={onSubmit}>
+        <Label>
           Email
-          <input
+          <Input
             type="email"
             placeholder="example@gmail.com"
             autoComplete="on"
             ref={emailRef}
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Password
-          <input
+          <Input
             type="password"
             placeholder="********"
             autoComplete="on"
             ref={pswrdRef}
           />
-        </label>
-        <button type="submit">Login</button>
-      </form>
+        </Label>
+        <Btn type="submit">Login</Btn>
+      </Form>
 
-      <p>
+      <Toggle>
         Don't have an account? <span onClick={toggleSignUpModal}>Sign Up</span>
-      </p>
-    </div>
+      </Toggle>
+    </Container>
   );
 };
-
-export default LoginModal;

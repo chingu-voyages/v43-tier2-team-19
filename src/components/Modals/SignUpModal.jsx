@@ -1,8 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
-import LoginModal from './LoginModal';
-import { useUserContext } from '../context/userContext';
+import { LoginModal } from './LoginModal';
+import { useUserContext } from '../../context/userContext';
+import {
+  Btn,
+  Container,
+  Form,
+  Input,
+  Label,
+  Login,
+  Toggle,
+} from './Modals.styled';
 
-const SignUpModal = ({ onClose }) => {
+export const SignUpModal = ({ onClose }) => {
   const emailRef = useRef();
   const pswrdRef = useRef();
 
@@ -36,21 +45,21 @@ const SignUpModal = ({ onClose }) => {
   if (showLoginModal) return <LoginModal onClose={toggleLoginModal} />;
 
   return (
-    <div onClick={closeModal}>
-      <h2>It is so easy track your favorite coin with us 🚀</h2>
-      <form onSubmit={onSubmit}>
-        <label>
+    <Container onClick={closeModal}>
+      <Login>It is so easy track your favorite coin with us 🚀</Login>
+      <Form onSubmit={onSubmit}>
+        <Label>
           Email
-          <input
+          <Input
             type="email"
             placeholder="example@gmail.com"
             autoComplete="off"
             ref={emailRef}
           />
-        </label>
-        <label>
+        </Label>
+        <Label>
           Password
-          <input
+          <Input
             type="password"
             placeholder="********"
             autoComplete="off"
@@ -58,21 +67,14 @@ const SignUpModal = ({ onClose }) => {
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$"
             title="Password must contain at least 8 characters including 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character."
           />
-        </label>
+        </Label>
 
-        <p>
-          Password must contain at least 8 characters including 1 uppercase
-          letter, 1 lowercase letter, 1 number, and 1 special character.
-        </p>
+        <Btn type="submit">Sign Up</Btn>
+      </Form>
 
-        <button type="submit">Sign Up</button>
-      </form>
-
-      <p>
+      <Toggle>
         Already have an account? <span onClick={toggleLoginModal}>Login</span>
-      </p>
-    </div>
+      </Toggle>
+    </Container>
   );
 };
-
-export default SignUpModal;

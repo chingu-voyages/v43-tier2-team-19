@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import LoginModal from './LoginModal';
-import SignUpModal from './SignUpModal';
+import { LoginModal } from '../Modals';
+import { SignUpModal } from '../Modals';
 import { useNavigate } from 'react-router';
-import { useUserContext } from '../context/userContext';
+import { useUserContext } from '../../context/userContext';
+import { Btn, Divider, Modal, ModalContent, Span } from './Auth.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const Auth = ({ onClose, action }) => {
+export const Auth = ({ onClose, action }) => {
   const navigate = useNavigate();
 
   const { user, signInWithGoogle, signInWithFacebook } = useUserContext();
@@ -25,17 +26,17 @@ const Auth = ({ onClose, action }) => {
   );
 
   return createPortal(
-    <div>
-      {modalContent}
-      <div>
-        <span>OR</span>
-      </div>
+    <Modal>
+      <ModalContent>
+        {modalContent}
+        <Divider>
+          <Span>OR</Span>
+        </Divider>
 
-      <button onClick={signInWithGoogle}>Continue with Google</button>
-      <button onClick={signInWithFacebook}>Continue with Facebook</button>
-    </div>,
+        <Btn onClick={signInWithGoogle}>Continue with Google</Btn>
+        <Btn onClick={signInWithFacebook}>Continue with Facebook</Btn>
+      </ModalContent>
+    </Modal>,
     modalRoot
   );
 };
-
-export default Auth;

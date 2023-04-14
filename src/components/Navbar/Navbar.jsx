@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Select from 'react-select';
 import { useUserContext } from '../../context/userContext';
-import Auth from '../Auth';
+import { Auth } from '../Auth';
 import { SignOut } from '../SignOut';
 
 const options = [
