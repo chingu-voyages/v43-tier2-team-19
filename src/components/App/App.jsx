@@ -7,7 +7,7 @@ import { Footer } from '../Footer';
 
 const HomePage = lazy(() => import('../../pages/Home'));
 const CoinDetailPage = lazy(() => import('../../pages/CoinDetail/CoinDetail'));
-const WatchListPage = lazy(() => import('../../pages/Watchlist'));
+const WatchListPage = lazy(() => import('../../pages/Watchlist/Watchlist'));
 
 export function App() {
   return (
