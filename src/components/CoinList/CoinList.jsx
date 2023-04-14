@@ -15,6 +15,7 @@ import {
   PricesSection,
   StyledLink,
   Symbol,
+  Input,
 } from './CoinList.styled';
 
 export const CoinList = () => {
@@ -60,9 +61,9 @@ export const CoinList = () => {
     <PricesSection>
       {/* search */}
       <div>
-        <input
+        <Input
           type="text"
-          placeholder="Search"
+          placeholder="Search..."
           value={query}
           onChange={onChange}
         />

@@ -8,6 +8,24 @@ export const PricesSection = styled.section`
   gap: 20px;
 `;
 
+export const Input = styled.input`
+  padding: 10px 0px 10px 10px;
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  outline: none;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgb(45, 55, 72);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  &:hover,
+  &:focus {
+    border: 2px solid #fca13a;
+  }
+  &:not(:placeholder-shown) {
+    border: 2px solid #01b0c8;
+  }
+`;
+
 export const Table = styled.table`
   width: 100%;
   border-spacing: 0 16px;
