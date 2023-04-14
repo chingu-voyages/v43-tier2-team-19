@@ -1,6 +1,6 @@
 import React from 'react';
-import CoinList from '../components/CoinList';
-import Hero from '../components/Hero';
+import { Hero } from '../components/Hero';
+import { CoinList } from '../components/CoinList/';
 
 const Home = () => {
   return (

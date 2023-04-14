@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Select from 'react-select';
-import { useUserContext } from '../context/userContext';
-import Auth from './Auth';
-import { SignOut } from './SignOut';
+import { useUserContext } from '../../context/userContext';
+import Auth from '../Auth';
+import { SignOut } from '../SignOut';
 
 const options = [
   { label: 'US Dollar', value: 'USD' },
@@ -16,7 +16,7 @@ const options = [
   { label: 'Chinese Yuan', value: 'CNY' },
 ];
 
-const Navbar = () => {
+export const Navbar = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalAction, setAuthModalAction] = useState('login');
   const { user } = useUserContext();
@@ -70,5 +70,3 @@ const Navbar = () => {
     </header>
   );
 };
-
-export default Navbar;

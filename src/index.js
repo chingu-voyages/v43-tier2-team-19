@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './fonts.css';
 import { BrowserRouter } from 'react-router-dom';
 import CryptoContext from './context/CurrencyContext';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { UserContextProvider } from './context/userContext';
+import { GlobalStyle } from './components/GlobalStyle';
+import { App } from './components/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
       <UserContextProvider>
         <CryptoContext>
           <App />
+          <GlobalStyle />
         </CryptoContext>
       </UserContextProvider>
     </BrowserRouter>

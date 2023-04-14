@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import AliceCarousel from 'react-alice-carousel';
-import { TrendingCoins } from '../utils/api';
+import { TrendingCoins } from '../../utils/api';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { HeroSection, Title } from './Hero.styled';
 
-const Hero = () => {
+export const Hero = () => {
   const [trending, setTrending] = useState([]);
 
   const fetchTrendingCoins = async () => {
@@ -51,9 +52,9 @@ const Hero = () => {
     },
   };
   return (
-    <div>
+    <HeroSection>
       <div>
-        <h1>Crypto Application</h1>
+        <Title>Crypto Application</Title>
       </div>
       <AliceCarousel
         mouseTracking
@@ -66,8 +67,6 @@ const Hero = () => {
         autoPlay
         items={items}
       />
-    </div>
+    </HeroSection>
   );
 };
-
-export default Hero;

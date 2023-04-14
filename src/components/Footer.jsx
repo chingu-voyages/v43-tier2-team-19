@@ -1,18 +1,18 @@
-import React from "react"
+import React from 'react';
 
 const Footer = () => {
   return (
-    <div>
-      Developed with ❤️ by:{" "}
+    <footer>
+      Developed with ❤️ by:{' '}
       <a target="_blank" href="https://www.linkedin.com/in/olesia-trebina/">
         Olesia Trebina
-      </a>{" "}
-      &{" "}
+      </a>{' '}
+      &{' '}
       <a target="_blank" href="https://www.linkedin.com/in/evgeniyzinkov/">
         Evgeniy Zinkov
       </a>
-    </div>
-  )
-}
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
