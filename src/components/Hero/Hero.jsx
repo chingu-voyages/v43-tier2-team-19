@@ -2,8 +2,15 @@ import React, { useState, useEffect } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import { TrendingCoins } from '../../utils/api';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { HeroSection, Title } from './Hero.styled';
+import {
+  HeroSection,
+  Img,
+  Title,
+  CoinSymbol,
+  LinkWrapper,
+  PriceChange,
+  Price,
+} from './Hero.styled';
 
 export const Hero = () => {
   const [trending, setTrending] = useState([]);
@@ -29,16 +36,16 @@ export const Hero = () => {
     let profit = coin.price_change_percentage_24h >= 0;
 
     return (
-      <Link to={`/coin/${coin.id}`}>
-        <img src={coin?.image} alt={coin.name} height="80" />
-        <span>
-          {coin?.symbol}{' '}
-          <span>
+      <LinkWrapper to={`/coin/${coin.id}`}>
+        <Img src={coin?.image} alt={coin.name} />
+        <div>
+          <CoinSymbol>{coin?.symbol}</CoinSymbol>
+          <PriceChange profit={profit}>
             {profit && '+'} {coin?.price_change_percentage_24h?.toFixed(2)}%
-          </span>
-        </span>
-        <span>{numberWithCommas(coin?.current_price.toFixed(2))}$</span>
-      </Link>
+          </PriceChange>
+          <Price>{numberWithCommas(coin?.current_price.toFixed(2))}$</Price>
+        </div>
+      </LinkWrapper>
     );
   });
 
