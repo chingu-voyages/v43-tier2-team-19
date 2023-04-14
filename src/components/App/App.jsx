@@ -2,8 +2,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import { Navbar } from '../Navbar';
-import Footer from '../Footer';
 import { Main } from './App.styled';
+import { Footer } from '../Footer';
 
 const HomePage = lazy(() => import('../../pages/Home'));
 const CoinDetailPage = lazy(() => import('../../pages/CoinDetail'));
