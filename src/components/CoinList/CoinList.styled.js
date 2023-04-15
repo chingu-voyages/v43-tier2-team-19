@@ -1,16 +1,16 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link } from "react-router-dom"
+import styled from "styled-components"
 
 export const PricesSection = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 20px;
 
   @media screen and (max-width: 768px) {
     gap: 10px;
   }
-`;
+`
 
 export const Input = styled.input`
   padding: 10px 0px 10px 10px;
@@ -30,7 +30,7 @@ export const Input = styled.input`
   &:not(:placeholder-shown) {
     border: 2px solid #01b0c8;
   }
-`;
+`
 
 export const Table = styled.table`
   width: 100%;
@@ -41,7 +41,7 @@ export const Table = styled.table`
     width: 80%;
     border-spacing: 0 10px;
   }
-`;
+`
 
 export const Th = styled.th`
   font-size: 16px;
@@ -52,16 +52,16 @@ export const Th = styled.th`
     font-size: 14px;
     line-height: 20px;
   }
-`;
+`
 
 export const Tr = styled.tr`
   background: #f5f5f7;
   height: 80px;
-`;
+`
 
 export const CoinTd = styled.td`
   border-radius: 14px 0 0 14px;
-`;
+`
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -74,7 +74,7 @@ export const StyledLink = styled(Link)`
     margin-left: 5px;
     max-width: 200px;
   }
-`;
+`
 
 export const ImgWrapper = styled.div`
   display: flex;
@@ -91,7 +91,7 @@ export const ImgWrapper = styled.div`
     width: 48px;
     height: 48px;
   }
-`;
+`
 
 export const Img = styled.img`
   width: 32px;
@@ -101,7 +101,7 @@ export const Img = styled.img`
     width: 28px;
     height: 28px;
   }
-`;
+`
 
 export const Name = styled.span`
   font-size: 16px;
@@ -112,7 +112,7 @@ export const Name = styled.span`
     font-size: 14px;
     line-height: 24px;
   }
-`;
+`
 
 export const Symbol = styled.span`
   font-size: 13px;
@@ -122,7 +122,7 @@ export const Symbol = styled.span`
   @media screen and (max-width: 768px) {
     font-size: 11px;
   }
-`;
+`
 
 export const CoinDesc = styled.td`
   font-size: 13px;
@@ -132,4 +132,4 @@ export const CoinDesc = styled.td`
     font-size: 11px;
     line-height: 21px;
   }
-`;
+`
