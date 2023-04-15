@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Tier 2 Project - Team 19
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the code for the Tier 2 project of Team 19 for the Chingu Voyage 43 cohort.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+The project is a web application that allows users to browse and track the prices of various cryptocurrencies. The app uses data from the [CoinGecko API](https://www.coingecko.com/en/api) to display information about each cryptocurrency.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Users can browse a list of cryptocurrencies and view detailed information about each coin.
+Users can search for specific coins by name or symbol.
+Users can add coins to a watchlist and track their prices over time.
+The app displays price charts for each coin, with data from the past 7 days.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- React.js
+- Styled Components
+- React Router
+- Chart.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+To run the app locally, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository: `git clone https://github.com/chingu-voyages/v43-tier2-team-19.git`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm start`
+   The app should now be running on [http://localhost:3000](http://localhost:3000).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contributing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Contributions to this project are welcome! If you notice any issues or have ideas for new features, feel free to open an issue or submit a pull request.
 
-### `npm run eject`
+## Credits
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project was created by Team 19 of the Chingu Voyage 43 cohort:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Evgeniy Zinkov](https://www.linkedin.com/in/evgeniyzinkov/)
+- [Olesia Trebina](https://www.linkedin.com/in/olesia-trebina/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks to the Chingu team for organizing this Voyage!
