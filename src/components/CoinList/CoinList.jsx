@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import ReactPaginate from 'react-paginate';
+import React, { useEffect, useState } from "react"
+import axios from "axios"
+import ReactPaginate from "react-paginate"
 
-import { CoinsList } from '../../utils/api';
+import { CoinsList } from "../../utils/api"
 import {
   Img,
   ImgWrapper,
@@ -16,46 +16,46 @@ import {
   StyledLink,
   Symbol,
   Input,
-} from './CoinList.styled';
+} from "./CoinList.styled"
 
 export const CoinList = () => {
-  const [coins, setCoins] = useState([]);
-  const [filteredCoins, setFilteredCoins] = useState([]);
-  const [query, setQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
-  const [pageCount, setPageCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
-  const coinsPerPage = 20;
+  const [coins, setCoins] = useState([])
+  const [filteredCoins, setFilteredCoins] = useState([])
+  const [query, setQuery] = useState("")
+  const [isLoading, setIsLoading] = useState(true)
+  const [pageCount, setPageCount] = useState(0)
+  const [currentPage, setCurrentPage] = useState(0)
+  const coinsPerPage = 10
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
     axios.get(CoinsList()).then((res) => {
-      setCoins(res.data);
-      setFilteredCoins(res.data);
-      setIsLoading(false);
-      setPageCount(Math.ceil(res.data.length / coinsPerPage));
-    });
-  }, []);
+      setCoins(res.data)
+      setFilteredCoins(res.data)
+      setIsLoading(false)
+      setPageCount(Math.ceil(res.data.length / coinsPerPage))
+    })
+  }, [])
 
   const handlePageClick = (selectedPage) => {
-    setCurrentPage(selectedPage.selected);
-  };
+    setCurrentPage(selectedPage.selected)
+  }
 
   const onChange = (e) => {
-    e.preventDefault();
-    const newQuery = e.target.value;
-    setQuery(newQuery);
+    e.preventDefault()
+    const newQuery = e.target.value
+    setQuery(newQuery)
     const newFilteredCoins = coins.filter(
       (coin) =>
         coin.name.toLowerCase().includes(newQuery.toLowerCase()) ||
         coin.symbol.toLowerCase().includes(newQuery.toLowerCase())
-    );
-    setFilteredCoins(newFilteredCoins);
-    setPageCount(Math.ceil(newFilteredCoins.length / coinsPerPage));
-    setCurrentPage(0);
-  };
+    )
+    setFilteredCoins(newFilteredCoins)
+    setPageCount(Math.ceil(newFilteredCoins.length / coinsPerPage))
+    setCurrentPage(0)
+  }
 
-  const offset = currentPage * coinsPerPage;
+  const offset = currentPage * coinsPerPage
 
   return (
     <PricesSection>
@@ -103,7 +103,7 @@ export const CoinList = () => {
                   <CoinDesc>
                     {coin.price_change_percentage_24h.toFixed(2)}%
                   </CoinDesc>
-                  <CoinDesc style={{ borderRadius: '0 14px 14px 0' }}>
+                  <CoinDesc style={{ borderRadius: "0 14px 14px 0" }}>
                     {coin.market_cap.toLocaleString()} $
                   </CoinDesc>
                 </Tr>
@@ -114,17 +114,16 @@ export const CoinList = () => {
       {/* pagination */}
       {pageCount > 1 && (
         <ReactPaginate
-          previousLabel={'<'}
-          nextLabel={'>'}
+          nextLabel={""}
+          previousLabel={""}
           pageCount={pageCount}
           onPageChange={handlePageClick}
-          containerClassName={'pagination'}
-          previousLinkClassName={'previous-page'}
-          nextLinkClassName={'next-page'}
-          disabledClassName={'pagination-disabled'}
-          activeClassName={'pagination-active'}
+          pageClassName={"pagination"}
+          breakLabel=""
+          activeClassName={"activePage"}
+          pageLinkClassName={"page"}
         />
       )}
     </PricesSection>
-  );
-};
+  )
+}
