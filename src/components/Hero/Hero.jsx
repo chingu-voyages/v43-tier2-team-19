@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import AliceCarousel from 'react-alice-carousel';
-import { TrendingCoins } from '../../utils/api';
-import axios from 'axios';
+import React, { useState, useEffect } from "react"
+import AliceCarousel from "react-alice-carousel"
+import { TrendingCoins } from "../../utils/api"
+import axios from "axios"
 import {
   HeroSection,
   Img,
@@ -10,30 +10,30 @@ import {
   LinkWrapper,
   PriceChange,
   Price,
-} from './Hero.styled';
+} from "./Hero.styled"
 
 export const Hero = () => {
-  const [trending, setTrending] = useState([]);
+  const [trending, setTrending] = useState([])
 
   const fetchTrendingCoins = async () => {
-    const { data } = await axios.get(TrendingCoins());
+    const { data } = await axios.get(TrendingCoins())
 
-    setTrending(data);
-  };
+    setTrending(data)
+  }
 
   useEffect(() => {
-    fetchTrendingCoins();
+    fetchTrendingCoins()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   // display comas and points in the correct way
   const numberWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  }
 
   const items = trending.map((coin) => {
     // shows profit in %
-    let profit = coin.price_change_percentage_24h >= 0;
+    let profit = coin.price_change_percentage_24h >= 0
 
     return (
       <LinkWrapper to={`/coin/${coin.id}`}>
@@ -41,13 +41,13 @@ export const Hero = () => {
         <div>
           <CoinSymbol>{coin?.symbol}</CoinSymbol>
           <PriceChange profit={profit}>
-            {profit && '+'} {coin?.price_change_percentage_24h?.toFixed(2)}%
+            {profit && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
           </PriceChange>
           <Price>{numberWithCommas(coin?.current_price.toFixed(2))}$</Price>
         </div>
       </LinkWrapper>
-    );
-  });
+    )
+  })
 
   // < 512px screen shows only 2 items;
   const responsive = {
@@ -57,11 +57,11 @@ export const Hero = () => {
     512: {
       items: 4,
     },
-  };
+  }
   return (
     <HeroSection>
       <div>
-        <Title>Crypto Application</Title>
+        <Title>Crypto Pulse</Title>
       </div>
       <AliceCarousel
         mouseTracking
@@ -75,5 +75,5 @@ export const Hero = () => {
         items={items}
       />
     </HeroSection>
-  );
-};
+  )
+}
