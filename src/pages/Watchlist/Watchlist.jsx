@@ -1,5 +1,12 @@
 import React, { useState } from "react"
-import { CoinLink, Container, Desc, Img, Name } from "./Watchlist.styled"
+import {
+  CoinLink,
+  Container,
+  Desc,
+  Img,
+  Name,
+  Button,
+} from "./Watchlist.styled"
 
 const Watchlist = () => {
   // retrieve watchlist data from local storage
@@ -22,7 +29,7 @@ const Watchlist = () => {
             <Name>{coin.name}</Name>
             <Desc>{coin.market_data.current_price.usd}$</Desc>
           </CoinLink>
-          <button onClick={() => removeFromWatchlist(coin.id)}>Remove</button>
+          <Button onClick={() => removeFromWatchlist(coin.id)}>Remove</Button>
         </>
       ))}
     </Container>
