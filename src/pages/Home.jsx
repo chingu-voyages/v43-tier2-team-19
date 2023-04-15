@@ -1,6 +1,6 @@
-import React from 'react';
-import { Hero } from '../components/Hero';
-import { CoinList } from '../components/CoinList/';
+import React from "react"
+import { Hero } from "../components/Hero"
+import { CoinList } from "../components/CoinList/CoinList"
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
       <Hero />
       <CoinList />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
