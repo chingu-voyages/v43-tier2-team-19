@@ -12,6 +12,10 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 800px;
   margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export const Icon = styled(SiBitcoincash)`
@@ -19,6 +23,7 @@ export const Icon = styled(SiBitcoincash)`
   height: 40px;
   color: #fca13a;
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
   :hover {
     color: #004a4b;
   }
@@ -28,6 +33,10 @@ export const LinkWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media screen and (max-width: 480px) {
+    gap: 10px;
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -37,14 +46,23 @@ export const StyledLink = styled(NavLink)`
   line-height: 15px;
   padding: 10px 5px;
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
   :hover {
     color: #004a4b;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 5px;
   }
 `;
 
 export const BtnWrapper = styled.div`
   display: flex;
   gap: 20px;
+
+  @media screen and (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 export const AuthWrapper = styled.div`
@@ -63,5 +81,9 @@ export const Btn = styled.button`
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
   :hover {
     color: #004a4b;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 5px;
   }
 `;

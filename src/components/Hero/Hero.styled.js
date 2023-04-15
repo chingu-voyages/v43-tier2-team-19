@@ -8,10 +8,18 @@ export const LinkWrapper = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: #333;
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const Img = styled.img`
   height: 150px;
+
+  @media (max-width: 768px) {
+    height: 100px;
+  }
 `;
 
 export const CoinSymbol = styled.span`
@@ -41,4 +49,8 @@ export const Title = styled.h1`
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `;

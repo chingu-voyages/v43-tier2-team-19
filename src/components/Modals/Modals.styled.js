@@ -17,12 +17,10 @@ export const Login = styled.h2`
 `;
 
 export const Form = styled.form`
-  width: 300px;
+  width: 100%;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
-  @media screen and (min-width: 1020px) {
-    width: 350px;
-  }
 `;
 
 export const Label = styled.label`

@@ -19,19 +19,28 @@ export const ModalContent = styled.div`
   border: 1px solid #888;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  width: 50%;
+  width: 90%;
   max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    width: 70%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 50%;
+  }
 `;
 
 export const Divider = styled.div`
-  width: 300px;
+  width: 90%;
   display: flex;
   font-size: 12px;
   font-weight: 500;
   margin: 0 auto 27px;
+
   ::before,
   ::after {
     content: '';
@@ -39,8 +48,13 @@ export const Divider = styled.div`
     flex: 1;
     height: 7px;
   }
-  @media screen and (min-width: 1020px) {
-    width: 350px;
+
+  @media screen and (min-width: 768px) {
+    width: 70%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 50%;
   }
 `;
 
@@ -56,17 +70,24 @@ export const Btn = styled.button`
   font-size: 16px;
   line-height: 19px;
   padding: 15px 0 16px;
-  width: 300px;
+  width: 90%;
   border-radius: 5px;
   border-color: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   :hover {
     background-color: #004a4b;
   }
+
   & + & {
     margin-top: 11px;
   }
-  @media screen and (min-width: 1020px) {
-    width: 350px;
+
+  @media screen and (min-width: 768px) {
+    width: 70%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 50%;
   }
 `;

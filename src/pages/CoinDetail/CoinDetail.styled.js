@@ -7,26 +7,46 @@ export const Sidebar = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export const Img = styled.img`
   width: 10rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    width: 8rem;
+  }
 `;
 
 export const Title = styled.h2`
   font-size: 2rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const Desc = styled.p`
   padding: 0 1rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const Price = styled.span`
   font-size: 1.5rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const Btn = styled.button`
@@ -41,5 +61,10 @@ export const Btn = styled.button`
 
   &:hover {
     background-color: #3792cb;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    padding: 0.25rem 0.75rem;
   }
 `;
