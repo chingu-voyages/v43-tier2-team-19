@@ -14,11 +14,13 @@ import {
   Sidebar,
   Title,
 } from './CoinDetail.styled';
+import { useUserContext } from '../../context/userContext';
 
 const CoinDetail = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
   const [watchlist, setWatchlist] = useState([]);
+  const { user } = useUserContext();
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
@@ -59,7 +61,11 @@ const CoinDetail = () => {
           <Title>{coin.name}</Title>
           <Desc>{parse(coin.description.en.split('. ')[0])}</Desc>
           <Price>Price: {coin.market_data.current_price.usd}$</Price>
-          <Btn onClick={() => handleAddToWatchlist(coin)}>Add to Watchlist</Btn>
+          {user && (
+            <Btn onClick={() => handleAddToWatchlist(coin)}>
+              Add to Watchlist
+            </Btn>
+          )}
         </Sidebar>
       ) : (
         'loading'

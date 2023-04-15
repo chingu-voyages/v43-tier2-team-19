@@ -16,6 +16,7 @@ import {
 } from './Navbar.styled';
 import { Crypto, CryptoState } from '../../context/CurrencyContext';
 import { customStyles } from '../../utils/selectorConfig';
+import { TrendingCoins } from '../../utils/api';
 
 const options = [
   { label: 'US Dollar', value: 'USD' },
@@ -36,7 +37,6 @@ export const Navbar = () => {
 
   const handleCurrencyChange = useCallback(
     (selectedOption) => {
-      console.log('selectedOption:', selectedOption);
       setCurrency(selectedOption.value);
     },
     [setCurrency]
