@@ -1,43 +1,73 @@
-# Tier 2 Project - Team 19
 
-This repository contains the code for the Tier 2 project of Team 19 for the Chingu Voyage 43 cohort.
 
-## Overview
+![alt text](https://i.ibb.co/VChkQT1/Screenshot-2023-04-16-at-09-55-28-Crypto-Pulse.png)
 
-The project is a web application that allows users to browse and track the prices of various cryptocurrencies. The app uses data from the [CoinGecko API](https://www.coingecko.com/en/api) to display information about each cryptocurrency.
+# CryptoPulse Application
 
+This app was created for the Chingu Voyage v43.
+
+[Link to website](https://cryptopulseua.netlify.app/)
 ## Features
 
-Users can browse a list of cryptocurrencies and view detailed information about each coin.
-Users can search for specific coins by name or symbol.
-Users can add coins to a watchlist and track their prices over time.
-The app displays price charts for each coin, with data from the past 7 days.
+- Login/Sign  Up
+- Cryptocurrency monitoring
+- Add cryptocurrency to Watchlist
+- Currency selection
+- Pagination
+- Cryptocurrency search
+- Coin chart
 
-## Tech Stack
 
-- React.js
-- Styled Components
-- React Router
-- Chart.js
+## Run Locally
 
-## Getting Started
+Clone the project
 
-To run the app locally, follow these steps:
+```bash
+  git clone https://github.com/chingu-voyages/v43-tier2-team-19.git
+```
 
-1. Clone the repository: `git clone https://github.com/chingu-voyages/v43-tier2-team-19.git`
-2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
-   The app should now be running on [http://localhost:3000](http://localhost:3000).
+Go to the project directory
 
-## Contributing
+```bash
+  cd my-project
+```
 
-Contributions to this project are welcome! If you notice any issues or have ideas for new features, feel free to open an issue or submit a pull request.
+Install dependencies
 
-## Credits
+```bash
+  npm install
+```
 
-This project was created by Team 19 of the Chingu Voyage 43 cohort:
+Start the server
 
-- [Evgeniy Zinkov](https://www.linkedin.com/in/evgeniyzinkov/)
-- [Olesia Trebina](https://www.linkedin.com/in/olesia-trebina/)
+```bash
+  npm start
+```
 
-Thanks to the Chingu team for organizing this Voyage!
+
+## Dependencies
+
+- @testing-library/jest-dom"
+- @testing-library/react
+- @testing-library/user-event
+- axios
+- chart.js
+- firebase
+- html-react-parser
+- modern-normalize
+- moment
+- react
+- react-alice-carousel
+- react-chartjs-2
+- react-dom
+- react-icons
+- react-paginate
+- react-router
+- react-router-dom
+- react-scripts
+- react-select
+- styled-components
+## Authors
+
+[Olesia Trebina](https://www.linkedin.com/in/olesia-trebina/) & [Evgeniy Zinkov](https://www.linkedin.com/in/evgeniyzinkov/)
+
